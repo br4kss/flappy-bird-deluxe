@@ -181,8 +181,6 @@ function show_infobox() {
     <title>flappy_bird_web_project</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="height=device-height, initial-scale=1.0">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
 
@@ -287,13 +285,51 @@ function show_infobox() {
     <script src="https://pygame-web.github.io/cdn/0.9.3//browserfs.min.js"></script>
 
 
-<link rel="manifest" href="manifest.webmanifest">
+<!-- FLAPPY RESPONSIVE START -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#10182f">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Flappy Deluxe">
-<link rel="apple-touch-icon" href="icon.svg">
-<script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(console.warn)); }</script>
+<style id="flappy-responsive-canvas">
+  html, body {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #10182f !important;
+  }
+  body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+  canvas {
+    display: block !important;
+    /* Logical game ratio is 520:700. Fit the full canvas into the screen. */
+    width: min(100vw, 74.2857vh) !important;
+    width: min(100vw, 74.2857dvh) !important;
+    height: auto !important;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    aspect-ratio: 520 / 700 !important;
+    object-fit: contain !important;
+    margin: auto !important;
+    touch-action: manipulation !important;
+  }
+  @media (orientation: landscape) {
+    canvas {
+      width: min(100vw, 74.2857vh) !important;
+      width: min(100vw, 74.2857dvh) !important;
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+    }
+  }
+</style>
+<!-- FLAPPY RESPONSIVE END -->
+
 </head>
 
 <body>
